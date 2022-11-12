@@ -1,0 +1,101 @@
+treatments:
+  - name: high_cont_dem
+    factorIds:
+      - HCycy5kGN5knbWZtt
+      - gQbzA6WmRRtMYsSYA
+      - ECzNLB3LQzxTG2XW3
+      - oxGFxwZdmAzxQp5Yx
+    archivedAt: 2022-11-11T16:18:46.756Z
+  - name: high_cont_rep
+    factorIds:
+      - HCycy5kGN5knbWZtt
+      - gQbzA6WmRRtMYsSYA
+      - ECzNLB3LQzxTG2XW3
+      - kFGNp4Fy7vmh9kyiS
+      - LoejH7ZFqkFSmQpWy
+      - ySQSicrTwcNc2h7g2
+factorTypes:
+  - _id: nyPCCQXCaKTeWsgJz
+    name: playerCount
+    description: The Number of players participating in the given game.
+    required: true
+    type: Integer
+    min: 1
+  - _id: tv9y2EqvQBRpHNnLo
+    name: numeracy
+    description: >-
+      Factor determining the difficulty of the numbers in the task stimulus
+      table.
+    required: true
+    type: String
+  - _id: r7c3wXHBGLyzYPnsJ
+    name: contentious
+    description: Is the topic contentious?
+    required: true
+    type: String
+  - _id: pTyLuzEC72fNdLNK4
+    name: politicalParty
+    description: Political party of the group members.
+    required: true
+    type: String
+  - _id: xs7X6xT5Qdw5nfRbf
+    name: soloTaskDuration
+    description: The time (in seconds) allotted to the solo answering stage.
+    required: true
+    type: Integer
+    min: 0
+    max: 10000
+  - _id: qmsqbGe3hWFFLwrzr
+    name: groupTaskDuration
+    description: The time (in seconds) allotted to the group answering stage.
+    required: true
+    type: Integer
+    min: 1
+    max: 10000
+factors:
+  - _id: HCycy5kGN5knbWZtt
+    name: '3'
+    value: 3
+    factorTypeId: nyPCCQXCaKTeWsgJz
+  - _id: gQbzA6WmRRtMYsSYA
+    name: high
+    value: high
+    factorTypeId: tv9y2EqvQBRpHNnLo
+  - _id: YtRn2p6kG2QJhdtBe
+    name: med
+    value: med
+    factorTypeId: tv9y2EqvQBRpHNnLo
+  - _id: quXKDQWLBtuosmBeu
+    name: low
+    value: low
+    factorTypeId: tv9y2EqvQBRpHNnLo
+  - _id: ECzNLB3LQzxTG2XW3
+    name: contentious
+    value: contentious
+    factorTypeId: r7c3wXHBGLyzYPnsJ
+  - _id: 9iGayboSJwybbYrFy
+    name: noncontentious
+    value: noncontentious
+    factorTypeId: r7c3wXHBGLyzYPnsJ
+  - _id: oxGFxwZdmAzxQp5Yx
+    name: Democrats
+    value: Democrats
+    factorTypeId: pTyLuzEC72fNdLNK4
+  - _id: kFGNp4Fy7vmh9kyiS
+    name: Republicans
+    value: Republicans
+    factorTypeId: pTyLuzEC72fNdLNK4
+  - _id: LoejH7ZFqkFSmQpWy
+    name: 5min
+    value: 300
+    factorTypeId: xs7X6xT5Qdw5nfRbf
+  - _id: ySQSicrTwcNc2h7g2
+    name: 5min
+    value: 300
+    factorTypeId: qmsqbGe3hWFFLwrzr
+lobbyConfigs:
+  - name: 10min_timeout
+    timeoutType: lobby
+    timeoutInSeconds: 600
+    timeoutStrategy: fail
+    gameLobbyIds: []

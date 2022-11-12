@@ -1,0 +1,22 @@
+{
+  "admins": [
+    {
+      "username": "admin",
+      "password": "mitbehavioral"
+    }
+  ],
+  "galaxy.meteor.com": {
+    "env": {
+      "MONGO_URL": "mongodb+srv://db_user:dbuser123@contentious.p8qnr.mongodb.net/MN_2?retryWrites=true&w=majority",
+      "MONGO_OPLOG_URL": "mongodb+srv://oplog:oplog123@contentious.p8qnr.mongodb.net/local"
+    }
+  },
+  "public": {
+    "playerIdParam": "workerId",
+    "playerIdParamExclusive": false,
+    "debug_newPlayer": false,
+    "debug_resetSession": false,
+    "debug_resetDatabase": true,
+    "debug_gameDebugMode": true
+  }
+}
