@@ -188,11 +188,13 @@ export default class TaskResponse extends React.Component {
       <div>
       <div>
         <input type="radio" name="testing" value="A" id="A" onClick={this.handleSubmitA} checked={player.round.get("socialAnswer") == "A"}></input>
+        <label> A) </label>
         <label for="A" dangerouslySetInnerHTML={{__html: `  ${JSON.parse(stimulusParams['answerA'])}`}}></label>
       </div>
       <br/>
       <div>
         <input type="radio" name="testing" value="B" id="B" onClick={this.handleSubmitB} checked={player.round.get("socialAnswer") == "B"}></input>
+        <label> B) </label>
         <label for="B" dangerouslySetInnerHTML={{__html: `  ${JSON.parse(stimulusParams['answerB'])}`}}></label>
       </div>
       <br></br>

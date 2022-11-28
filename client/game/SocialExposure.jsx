@@ -1,6 +1,8 @@
 import React from "react";
 import { Chat } from "@empirica/chat";
 import { taskData } from "./constants";
+import { TimeSync } from "meteor/mizzao:timesync";
+
 
 export default class SocialExposure extends React.Component {  
 
@@ -17,7 +19,7 @@ export default class SocialExposure extends React.Component {
         </div>
         <div style={{"width": "20em", "font-size":"0.9em"}}>
           <br/>
-          <span dangerouslySetInnerHTML={{__html:`<strong>Selected: </strong>${otherPlayer.round.get("socialAnswer") ? otherPlayer.round.get("socialAnswer") == "A" ? JSON.parse(stimulusParams['answerA']): JSON.parse(stimulusParams['answerB']) : "No answer selected."}`}}></span>
+          <span dangerouslySetInnerHTML={{__html:`<strong>Selected: </strong>${otherPlayer.round.get("socialAnswer") ? otherPlayer.round.get("socialAnswer") : "No answer selected."}`}}></span>
         </div>
         <div>
         <br/>
