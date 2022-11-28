@@ -15,13 +15,15 @@ export default class SocialExposure extends React.Component {
         <br></br>
         <img src={otherPlayer.get("avatar")} className="profile-avatar" />
         </div>
+        <div style={{"width": "20em", "font-size":"0.9em"}}>
+          <br/>
+          <span dangerouslySetInnerHTML={{__html:`<strong>Selected: </strong>${otherPlayer.round.get("socialAnswer") ? otherPlayer.round.get("socialAnswer") == "A" ? JSON.parse(stimulusParams['answerA']): JSON.parse(stimulusParams['answerB']) : "No answer selected."}`}}></span>
+        </div>
         <div>
-          <br></br>
-          <strong dangerouslySetInnerHTML={{__html:otherPlayer.round.get("socialAnswer") ? otherPlayer.round.get("socialAnswer") == "A" ? JSON.parse(stimulusParams['answerA']): JSON.parse(stimulusParams['answerB']) : "No answer selected."}}></strong>
-          <span className={`bp3-tag bp3-round ${otherPlayer.round.get("satisfied") ? "bp3-intent-success" : "bp3-intent-danger"}`} 
+        <br/>
+        <span className={`bp3-tag bp3-round ${otherPlayer.round.get("satisfied") ? "bp3-intent-success" : "bp3-intent-danger"}`} 
           style={{"margin":10,"margin-top":10}}>{otherPlayer.round.get("satisfied") ? "Submitted" : "Not submitted"}</span>
         </div>
-         
       </div>
     );
   }

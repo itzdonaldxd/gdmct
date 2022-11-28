@@ -62,7 +62,7 @@ export default class InstructionStepTwo extends React.Component {
           <p>Also, if you leave the study early at any point, you will lose all earnings and receive nothing.</p>
 
           <h3>Answering questions as a group</h3>
-          To submit an answer as a group, the group must all <strong>submit</strong> the same answer. To help your group with the task, you all will be given some information about what each other are doing when selecting the potential options.
+          To submit an answer as a group, <strong>the group must all submit the same answer.</strong> To help your group with the task, you all will be given some information about what each other are doing when selecting the potential options.
           <ul>
             <li><strong>Selecting an answer:</strong> During the group stage, you will see if either individual has selected an answer by clicking the radio button. Once an answer is selected, it will show your group that you have selected the answer, <i>but not submitted it</i>. For example, Green in the screenshot below has selected Answer B, but <i>not yet</i> submitted it.</li>
             <br/>
@@ -75,7 +75,7 @@ export default class InstructionStepTwo extends React.Component {
 
           <p>As soon as all group members have selected and submitted the same answer, the task will proceed; otherwise, the task will automatically proceed after 5 minutes.</p>
 
-          <img src="./images/consensus.jpg" width="1000px" style={{border:"1px solid #000000"}}/>
+          <img src="./images/consensus_ph.png" width="1000px" style={{border:"1px solid #000000"}}/>
           
           <p>
             <button type="button" onClick={onPrev} disabled={!hasPrev}>
