@@ -13,7 +13,8 @@ export default class TaskResponse extends React.Component {
 
   handleSubmitA = event => {
     event.preventDefault();
-    const {stage, player} = this.props; 
+    const {game, stage, player} = this.props; 
+    console.log("Clicked A");
 
     this.props.player.round.set("satisfied", false)
     if (this.props.stage.name == "response"){
@@ -27,6 +28,16 @@ export default class TaskResponse extends React.Component {
       });
     }
     else{
+      const prevSocialAnswer = this.props.player.round.get("socialAnswer");
+      if (prevSocialAnswer != "A") {
+        game.players.forEach((p) => {
+          if (p._id !== player._id){
+            p.round.set(`update${player.get("name")}`, true);
+          }
+        })
+        this.props.player.round.set("prevSocialAnswer", prevSocialAnswer);
+      }
+
       this.props.player.round.set("socialAnswer", "A");
       stage.append("log", {
         verb: "selectAnswer",
@@ -35,11 +46,12 @@ export default class TaskResponse extends React.Component {
         at: moment(TimeSync.serverTime(null, 1000)),
       });
     }
+
   };
 
   handleSubmitB = event => {
     event.preventDefault();
-    const {stage, player} = this.props; 
+    const {game, stage, player} = this.props; 
 
     this.props.player.round.set("satisfied", false)
     if (this.props.stage.name == "response"){
@@ -53,6 +65,16 @@ export default class TaskResponse extends React.Component {
       });
     }
     else{
+      const prevSocialAnswer = this.props.player.round.get("socialAnswer");
+      if (prevSocialAnswer != "B") {
+        game.players.forEach((p) => {
+          if (p._id !== player._id){
+            p.round.set(`update${player.get("name")}`, true);
+          }        
+        })
+        this.props.player.round.set("prevSocialAnswer", prevSocialAnswer);
+      }
+
       this.props.player.round.set("socialAnswer", "B");
       stage.append("log", {
         verb: "selectAnswer",
@@ -105,13 +127,21 @@ export default class TaskResponse extends React.Component {
 }
 
   handleConsensusButton = event =>{
-    const {stage, player} = this.props;
+    const {game, stage, player} = this.props;
     stage.append("log", {
       verb: "playerSatisfaction",
       subjectId: player._id,
       state: !player.round.get("satisfied"),
       at: moment(TimeSync.serverTime(null, 1000)),
     });
+
+    console.log("Submitted");
+    game.players.forEach((p) => {
+      if (p._id !== player._id){
+        p.round.set(`update${player.get("name")}`, true);
+      }        
+    })
+
     player.round.set("satisfied", !player.round.get("satisfied"))
     
   }

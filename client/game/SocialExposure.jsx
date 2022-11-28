@@ -6,12 +6,23 @@ import Chat from "../chat/Chat";
 
 export default class SocialExposure extends React.Component {  
 
+  answerChangedSound = new Audio(`sounds/answer-selected.mp3`);
+
   renderSocialInteraction(otherPlayer) {
-    const {game} = this.props; 
+    const {game, player} = this.props; 
     const stimulusParams = taskData['stimuli'][game.treatment.contentious];
+    const highlight = player.round.get(`${`update${otherPlayer.get("name")}`}`);
+
+    if (highlight) {
+      this.answerChangedSound.play();
+      setTimeout(() => {
+        player.round.set(`${`update${otherPlayer.get("name")}`}`, false);
+      }, 500);
+    }
 
     return (
-      <div className="alter" key={otherPlayer._id}>
+      <div className="alter highlight-element" 
+      style={{backgroundColor : highlight ? `${otherPlayer.get("nameColor")}80`: "" }} key={otherPlayer._id}>
         <div>
         <span style={{color:otherPlayer.get("nameColor")}}>{otherPlayer.get("name")}</span>
         <br></br>
