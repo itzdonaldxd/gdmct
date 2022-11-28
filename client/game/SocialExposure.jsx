@@ -7,6 +7,18 @@ import Chat from "../chat/Chat";
 export default class SocialExposure extends React.Component {  
 
   answerChangedSound = new Audio(`sounds/answer-selected.mp3`);
+  chatNotificationSound = new Audio(`sounds/chat-notification-sound.mp3`);
+
+  onIncomingMessage = (msgs, customKey) => {
+    const {game, round, stage, player} = this.props;
+    const messages = stage.get(`${customKey}`);
+    const mostRecentMsg = messages[messages.length -1];
+    const senderPlayerId = mostRecentMsg.player._id;
+  
+    if (player._id !== senderPlayerId) {
+      this.chatNotificationSound.play();
+    }
+  }
 
   renderSocialInteraction(otherPlayer) {
     const {game, player} = this.props; 
@@ -58,7 +70,7 @@ export default class SocialExposure extends React.Component {
         </p>
         {otherPlayers.map(p => this.renderSocialInteraction(p))}
         <h2>Discussion</h2>
-        <Chat game={game} player={player} scope={stage} timeStamp={timeStamp}/>
+        <Chat game={game} player={player} scope={stage} timeStamp={timeStamp} onIncomingMessage={this.onIncomingMessage}/>
       </div>
     );
   }

@@ -9,7 +9,6 @@ export default class InstructionStepThree extends React.Component {
 
   handleCheckChange = (checks, e) => {
     checks[e.target.name] = e.target.checked;
-    // console.log(checks)
   }
 
   render() {

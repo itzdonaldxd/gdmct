@@ -42,6 +42,7 @@ class Messages extends React.Component {
       currentMessages.length > messageLength
     ) {
       this.setState({ messageLength: currentMessages.length }, () => {
+
         if (onIncomingMessage) {
           onIncomingMessage(
             currentMessages.splice(this.state.messageLength),

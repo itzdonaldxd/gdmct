@@ -14,7 +14,6 @@ export default class TaskResponse extends React.Component {
   handleSubmitA = event => {
     event.preventDefault();
     const {game, stage, player} = this.props; 
-    console.log("Clicked A");
 
     this.props.player.round.set("satisfied", false)
     if (this.props.stage.name == "response"){
@@ -135,7 +134,6 @@ export default class TaskResponse extends React.Component {
       at: moment(TimeSync.serverTime(null, 1000)),
     });
 
-    console.log("Submitted");
     game.players.forEach((p) => {
       if (p._id !== player._id){
         p.round.set(`update${player.get("name")}`, true);
