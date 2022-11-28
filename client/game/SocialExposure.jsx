@@ -1,7 +1,7 @@
 import React from "react";
-import { Chat } from "@empirica/chat";
 import { taskData } from "./constants";
 import { TimeSync } from "meteor/mizzao:timesync";
+import Chat from "../chat/Chat";
 
 
 export default class SocialExposure extends React.Component {  
@@ -47,7 +47,7 @@ export default class SocialExposure extends React.Component {
         </p>
         {otherPlayers.map(p => this.renderSocialInteraction(p))}
         <h2>Discussion</h2>
-        <Chat player={player} scope={stage} timeStamp={timeStamp}/>
+        <Chat game={game} player={player} scope={stage} timeStamp={timeStamp}/>
       </div>
     );
   }
